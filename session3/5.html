@@ -1,0 +1,33 @@
+<html>
+<head>
+<script>
+
+function change(){
+	alert(x) // global variable
+	//alert(y) // local variable; accessible only in the onload event handler function
+	alert(z)
+	this.src='images/turtle.jpg'
+}
+
+onload=function(){
+	for(let i = 0; i < document.images.length; i++){
+	
+		x = 5
+		var y = 10	// accessible in this whole function
+		let z = 20	// accessible only in this loop
+	
+		// callback function
+		document.images[i].onclick=change 
+	}
+	alert(y) // no problem; 10
+	alert(z) // error; only accessible in the for(){} loop
+}
+</script>
+</head>
+<body>
+<img src='images/cat.jpg'>
+<img src='images/dog.jpg'>
+<img src='images/fish.jpg'>
+<img src='images/bird.jpg'>
+</body>
+</html>

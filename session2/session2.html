@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    percent = 100;
+   /* if (percent >= 70 & percent <= 99 ){
+        alert("A");
+    } else if (percent >= 60 & percent <= 69 ){
+        alert("B");
+    }else if (percent >= 50 & percent <= 59 ){
+        alert("C");
+    }else if (percent >= 0 & percent <= 49 ){
+        alert("D");
+    }else if (percent = 100 ){
+        alert("Perfect");
+    } */
+    // make sure always check for error first
+    if (isNaN(percent)){
+        alert('error');
+    }else if (percent > 100){
+        alert('too high');
+    }else if (percent < 0) {
+        alert('too low');
+    }else if (percent == 100) {
+        alert('perfect');
+    }else if (percent >= 70) {
+        alert("A");
+    }else if (percent >= 60) {
+        alert("B");
+    }else if (percent >= 50) {
+        alert("C");
+    }else if (percent >= 0) {
+        alert("D");
+    }else {
+        alert('failed');
+    }
+</script>
+
+</body>
+</html>

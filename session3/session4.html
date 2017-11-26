@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
+    <script>
+            // Wait for the DOM to be ready
+            $(function() {
+                // Initialize form validation on the registration form.
+                // It has the name attribute "registration"
+                $("form").validate({
+                    // Specify validation rules
+                    rules: {
+                        // The key name on the left side is the name attribute
+                        // of an input field. Validation rules are defined
+                        // on the right side
+                        s: {
+                            required: false,
+                            number: true,
+                            min: 5,
+                            max: 15,
+                        },
+
+                        y: {
+
+                            required: true,
+                            number: true,
+                            min: 1900,
+                            max: 2017,
+                        }
+                    },
+                    messages: {
+
+                        s: {
+                            min : "must be between 5 and 15",
+                            max : "must be between 5 and 15"
+                        },
+                        email: "Please enter a valid email address"
+                    },
+
+                });
+            });
+
+
+    </script>
+    <title>Title</title>
+</head>
+<body>
+<form action="error.php">
+    username:   <input class="required"         type="text" name="u" id="u"><br>
+    birth year: <input class="required number"  type="text" name="y" id="y"><br>
+    shoe size:  <input class="number"           type="text" name="s" id="s"><br>
+    home page:  <input class="url"              type="text" name="h" id="h"><br>
+    email:      <input class="email required"   type="text" name="e" id="e"><br>
+
+    <input type="submit">
+</form>
+</body>
+</html>

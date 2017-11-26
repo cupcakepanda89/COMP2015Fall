@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
+    <script>
+            onload = function () {
+               var im = document.getElementById('x')
+                im.onclick=function () {
+             //       this.style.left=parseInt(this.style.left)+1+'px' // this wont work without style attribute add to the img tag
+                    this.style.left=parseInt(this.style.left)+90+'px'
+                }
+            }
+    </script>
+    <title>Title</title>
+</head>
+<body>
+    <img src="../images/cat.jpg" id="x"
+        style="position: absolute; left: 14px">
+</body>
+</html>

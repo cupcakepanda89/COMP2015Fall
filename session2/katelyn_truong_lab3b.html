@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--
+Name: Katelyn Truong
+ID: A00952509
+Date: 2017-11-22
+Homework: Lab3b
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('img').on('click', function () {
+                $('img').css({'border':'red solid 2px'})
+            });
+            $('#im1, #im2, #im3').on('mouseover', function () {
+                $('#im1, #im2, #im3').css({'width':'100px'})
+            });
+            $('p').on('dblclick',function () {
+                $('p').css({'color':'blue'})
+            });
+            $('#p4').on('mouseover',function () {
+                $('#p4').css({'background':'yellow'})
+            });
+            $('#p5').on('mouseover',function () {
+                $('#p5').css({'background':'yellow'})
+            });
+
+        })
+
+    </script>
+    <title>Lab3b</title>
+</head>
+<body>
+<div id="div1">
+    <img id="im1" src="../images/cat.jpg">
+    <img id="im2" src="../images/dog.jpg">
+    <img id="im3" src="../images/fish.jpg">
+</div>
+<div id="div2">
+    <p id="p1">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vel tellus vitae est hendrerit tincidunt bibendum at lorem. Aliquam id lorem bibendum, ultricies risus id, pulvinar leo. Nunc erat tellus, vestibulum ut justo eget, egestas malesuada nisi. Morbi ipsum felis, ultricies eget mollis sed, gravida malesuada dui.
+    </p>
+    <p id="p2">
+        Maecenas sit amet posuere dui, vel ullamcorper risus. Curabitur tempus consequat dui a egestas. Mauris commodo dui vitae lectus pulvinar, vitae vulputate mauris vehicula. Aenean vel lobortis lorem, a rhoncus nunc. Sed tempus ante in felis maximus, quis sagittis erat tempus. Aenean nec augue eu tortor pulvinar rutrum sit amet sit amet tellus. Mauris suscipit odio at est vehicula tempus. Nulla facilisi. In ornare ligula nec porttitor sodales. Fusce luctus nisi vitae iaculis auctor. Morbi porttitor lacus sit amet suscipit lobortis. Maecenas tristique semper tortor id faucibus.
+    </p>
+    <p id="p3">
+        Donec elementum orci eu massa porttitor, vitae lacinia quam convallis. Mauris mattis, urna nec porta interdum, est justo porta tortor, dignissim ullamcorper nunc ligula non massa. Donec vel magna commodo, tempor ante in, volutpat felis. Pellentesque in lobortis libero, vel vehicula eros. Curabitur in tristique lorem.
+    </p>
+</div>
+<div id="div3">
+    <p id="p4">
+        Ut non condimentum elit. Sed fringilla, risus a venenatis ullamcorper, massa odio consectetur sem, quis viverra ex felis a velit. Integer lacinia aliquet elit quis feugiat. Aliquam vel elit turpis. Vestibulum scelerisque convallis sem, sit amet commodo est hendrerit id.
+    </p>
+    <img id="im4" src="../images/bird.jpg">
+    <p id="p5">
+        Nulla facilisi. Cras egestas fringilla quam vitae elementum. Mauris vitae nulla ut felis porttitor sodales. Aenean eget cursus mauris. Mauris vel ex vitae neque facilisis rutrum at a lacus.
+    </p>
+    <img id="im5" src="../images/turtle.jpg">
+</div>
+</body>
+</html>

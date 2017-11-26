@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    now = new Date();
+    xmas = new Date(2017, 11, 25, 6, 30, 0);
+    msec = xmas - now;
+    sec = msec / 1000;
+    min = sec / 60;
+    hr = min / 60;
+    day = hr /24;
+    alert(day.toFixed(1) + " till Christmas");
+    alert(Math.round(day) + " till Christmas");
+    // how many weeks to my bd
+    bday = new Date(2018, 11, 3, 12, 0, 0);
+    msec = bday - now;
+    sec = msec / 1000;
+    min = sec / 60;
+    hr = min / 60;
+    day = hr /24;
+    week = day / 7;
+    remainder = day%7;
+    alert(week.toFixed(1) + " and " + Math.round(remainder)+ " till my birthday");
+</script>
+</body>
+</html>

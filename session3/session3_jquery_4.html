@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        #div1{min-height: 76px; background-color: pink;}
+        #div2{min-height: 76px; background-color: cyan;}
+        #div3{min-height: 76px; background-color: lightgreen;}
+        #div4{min-height: 76px; background-color: silver;}
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $('div').dblclick(function () {
+                $(this).css('display','none')
+            });
+            //pre-dblclick div#1
+            $('#div1').dblclick();
+        })
+    </script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div1"></div>
+<div id="div2"></div>
+<div id="div3"></div>
+<div id="div4"></div>
+</body>
+</html>

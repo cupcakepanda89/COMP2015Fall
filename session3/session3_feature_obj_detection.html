@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script> //feature/object detection
+        onload = function () {
+            if(document.getElementById){
+                alert('document.getElementByID');
+                document.getElementById('x').src = 'images/dog.jpg';
+            } else if(document.all){
+                alert('document.all');
+                document.all['x'].src='images/dod.jpg';
+            }
+        }
+    </script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <img src="images/cat.jpg" id="x" name="x">
+</body>
+</html>
