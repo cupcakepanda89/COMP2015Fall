@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<!--
+Course: COMP2015
+Homework: Lab 4
+Date: 2017-11-29
+Name: Katelyn Truong
+ID: A00952509
+-->
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>lab4</title>
+	<!-- jquery plugin -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!-- jquery ui plugins -->
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<!-- jquery corner divs -->
+	<link href="maincss.css" rel="stylesheet">
+	<script src="mainjs.js"></script>
+	<script>
+		$( function() {
+			// 1. jquery plugin accordion
+			$( "#accordion" ).accordion({
+				collapsible: true
+			});
+			// 2. jquery date picker
+			$( "#datepicker" ).datepicker();
+			$( "#anim" ).on( "change", function() {
+				$( "#datepicker" ).datepicker( "option", "showAnim", $( this ).val() );
+			});
+			// 3. jquery css color switcher
+			$('#grayButton').click(switchGray);
+			$('#whiteButton').click(switchWhite);
+			$('#blueButton').click(switchBlue);
+			$('#yellowButton').click(switchYellow);
+
+			function switchGray() {
+				$('body').attr('class', 'gray');
+			}
+
+			function switchWhite() {
+				$('body').attr('class', 'white');
+			}
+
+			function switchBlue() {
+				$('body').attr('class', 'blue');
+			}
+
+			function switchYellow() {
+				$('body').attr('class', 'yellow');
+			}
+			// 4. jquery edit text in place
+			$('#edit').click(function(){
+				$('#edit').hide();
+				$('td').each(function(){
+					var content = $(this).html();
+					$(this).html('<textarea>' + content + '</textarea>');
+				});
+
+				$('#save').show();
+				$('.info').fadeIn('fast');
+			});
+
+			$('#save').click(function(){
+				$('#save, .info').hide();
+				$('textarea').each(function(){
+					var content = $(this).val();//.replace(/\n/g,"<br>");
+					$(this).html(content);
+					$(this).contents().unwrap();
+				});
+
+				$('#edit').show();
+			});
+
+			// 5. jquery corner divs
+			$('#dynCorner').click(function () {
+				$('#dynamic').corner();
+			});
+			$('#dynUncorner').click(function () {
+				$('#dynamic').uncorner();
+			});
+			// 6. jquery tooltips
+			var tooltips = $( "[title]" ).tooltip({
+				position: {
+					my: "left top",
+					at: "right+5 top-5",
+					collision: "none"
+				}
+			});
+			$( "<button>" )
+				.text( "Show All" )
+				.button()
+				.on( "click", function() {
+					tooltips.tooltip( "open" );
+				})
+				.insertAfter( "form" );
+
+		} );
+	</script>
+</head>
+<body>
+<ul id="switcher">
+	<li id="grayButton"></li>
+	<li id="whiteButton"></li>
+	<li id="blueButton"></li>
+	<li id="yellowButton"></li>
+</ul>
+
+<h1>Implementing 6 jQuery Plugins</h1>
+
+<p>Click on the circle colors above will change the color of body tag corresponding with its color.</p>
+<div id="accordion">
+	<h3>Section 1: Tooltips</h3>
+	<div>
+		<form>
+			<fieldset>
+				<div>
+					<label for="firstname">Firstname</label>
+					<input id="firstname" name="firstname" title="Please provide your firstname.">
+				</div>
+				<div>
+					<label for="lastname">Lastname</label>
+					<input id="lastname" name="lastname" title="Please provide also your lastname.">
+				</div>
+				<div>
+					<label for="address">Address</label>
+					<input id="address" name="address" title="Your home or work address.">
+				</div>
+			</fieldset>
+		</form>
+	</div>
+	<h3>Section 2: Corner Divs</h3>
+	<div>
+		<p><button id="dynCorner">Corner</button>  <button id="dynUncorner">Uncorner</button>
+		</p>
+		<div id="dynamic" style="width: 200px; padding: 30px; background-color: rgb(102, 170, 255); border-radius: 0px;">
+			<strong>Corner and un-corner button demo<br></strong>
+			I use click function to trigger the div to corner and un-corner.
+		</div>
+	</div>
+	<h3>Section 3: Date picker</h3>
+	<div>
+		<p>Date: <input type="text" id="datepicker" size="30"></p>
+
+		<p>Animations:<br>
+			<select id="anim">
+				<option value="show">Show (default)</option>
+				<option value="slideDown">Slide down</option>
+				<option value="fadeIn">Fade in</option>
+				<option value="blind">Blind (UI Effect)</option>
+				<option value="bounce">Bounce (UI Effect)</option>
+				<option value="clip">Clip (UI Effect)</option>
+				<option value="drop">Drop (UI Effect)</option>
+				<option value="fold">Fold (UI Effect)</option>
+				<option value="slide">Slide (UI Effect)</option>
+				<option value="">None</option>
+			</select>
+		</p>
+	</div>
+	<h3>Section 4: inline text edit</h3>
+	<div class="container">
+		<table>
+			<tr>
+				<th>Edit My Text</th>
+			</tr>
+			<tr>
+				<td>At vero invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed imperdiet mauris. Nullam facilisis justo et ligula efficitur, efficitur eleifend tellus feugiat.
+				</td>
+			</tr>
+		</table>
+		<button class="btn btn-info" id="edit"><span class="glyphicon glyphicon-edit"></span> edit</button>
+		<button class="btn btn-success"id="save"><span class="glyphicon glyphicon-save"></span> save</button>
+		<span class="info"></span>
+	</div>
+</div>
+</body>
+</html>
