@@ -1,0 +1,41 @@
+<html>
+<head>
+<script>
+onload=function(){
+	document.forms[0].onsubmit=function(){
+		for(let i = 0; i < this.elements.length; i++){
+			if(this.elements[i].className.indexOf('required') != -1){
+				if(this.elements[i].value == ""){
+					this.elements[i].style.border='red solid 5px'
+					alert('error: missing data')
+					this.elements[i].focus()
+					return false
+				}
+			}
+			
+			if(this.elements[i].className.indexOf('number') != -1){
+				if(isNaN(this.elements[i].value)){
+					this.elements[i].style.border='green solid 5px'
+					alert('error: not a number')
+					this.elements[i].select()
+					return false
+				}
+			}			
+		}
+	}
+}
+</script>
+</head>
+<body>
+<form action='error.php'>
+	username:   <input class='required' type='text' name='u' id='u'><br>
+	birth year: <input class='required number' type='text' name='y' id='y'><br>
+	shoe size:  <input class='number' type='text' name='s' id='s'><br>
+	home page:  <input class='url' type='text' name='h' id='h'><br>
+	email:      <input class='email required' type='text' name='e' id='e'><br>
+	
+
+	<input type='submit'>
+</form>
+</body>
+</html>
