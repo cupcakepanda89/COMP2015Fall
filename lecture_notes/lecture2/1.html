@@ -1,0 +1,28 @@
+<html>
+<head>
+<script>
+onload=function(){
+	document.forms[0].onsubmit=function(){
+		if(this.elements[0].value == ""){
+			alert('missing required field')
+			this.elements[0].style.border='red solid 2px'
+			this.elements[0].focus()
+			return false
+		}
+	}
+}
+</script>
+</head>
+<body>
+<form action='error.php'>
+	username:   <input type='text' name='u' id='u'><br>
+	birth year: <input type='text' name='y' id='y'><br>
+	shoe size:  <input type='text' name='s' id='s'><br>
+	home page:  <input type='text' name='h' id='h'><br>
+	email:      <input type='text' name='e' id='e'><br>
+	
+
+	<input type='submit'>
+</form>
+</body>
+</html>

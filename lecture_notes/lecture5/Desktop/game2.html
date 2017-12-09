@@ -1,0 +1,78 @@
+<html>
+<head>
+<style>
+#div1 {min-height:80px; background-color:pink}
+#div2 {min-height:80px; background-color:cyan}
+img{height:75px}
+</style>
+<script>
+
+function move(){
+	if(this.nextSibling != null){
+		this.parentNode.insertBefore(this.nextSibling, this)
+	}else if(this.parentNode.nextSibling != null){
+		this.parentNode.nextSibling.appendChild(this)
+	}else{
+		this.parentNode.previousSibling.insertBefore(
+			this, this.parentNode.previousSibling.childNodes[0])
+	}
+}
+
+function init(){
+	var div1 = document.createElement('div')
+	div1.id = 'div1'
+	
+	var div2 = document.createElement('div')
+	div2.id = 'div2'
+	
+	document.body.appendChild(div1)
+	document.body.appendChild(div2)
+	
+	for(let i = 'a'.charCodeAt(0); i <= 'z'.charCodeAt(0); i++){
+		var letter = String.fromCharCode(i)
+		//alert(letter)
+		
+		var img = document.createElement('img')
+		img.src = 'images/letters/' + letter + '.png'
+		img.id  = letter
+		
+		img.onclick=move
+		
+		div1.appendChild(img)
+	}
+}
+
+onload=init
+
+function handleKey(e){
+	var keyCode = null
+	
+	if(e.which){
+		keyCode = e.which
+	}else if(e.event){
+		keyCode = e.event
+	}
+	
+	
+	//alert(keyCode)
+	var a = document.getElementById('a')
+	
+	if(keyCode == 39){
+		// right-arrow key
+		a.parentNode.insertBefore(a.nextSibling, a)
+	}else if(keyCode == 37){
+		// left
+		a.parentNode.insertBefore(a, a.previousSibling)
+	}else if(keyCode == 40){
+		a.parentNode.nextSibling.appendChild(a)
+	}
+}
+
+onkeyup=handleKey
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

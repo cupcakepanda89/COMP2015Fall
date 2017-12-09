@@ -1,0 +1,31 @@
+<html>
+<head>
+<script>
+
+timer = null
+
+function slide(){
+	document.getElementById('x').style.left = 
+		parseInt(document.getElementById('x').style.left) + 1 + 'px'
+}
+
+onload=function(){
+	
+	document.getElementById('x').onclick=function(){
+		if(timer == null){
+			timer = setInterval(slide, 10)
+		}else{
+			clearInterval(timer)
+			timer = null
+		}
+	}
+}
+
+</script>
+</head>
+<body>
+
+<img src='images/cat.jpg' id='x' 
+	 style='position:absolute; left:14px'>
+</body>
+</html>

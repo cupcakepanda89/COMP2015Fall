@@ -1,0 +1,33 @@
+<html>
+<head>
+<script>
+myTimer = null
+moving  = false
+
+function move(){
+	var im = document.getElementById('x')
+	im.style.left = parseInt(im.style.left)+1+'px'
+}
+
+onload=function(){
+	var im = document.getElementById('x')
+	
+	im.onclick=function(){
+		if(!moving){
+			myTimer = setInterval(move, 10)
+			moving = true
+		}else{
+			// already moving; stop it
+			clearInterval(myTimer)
+			moving = false
+		}
+	}
+}
+</script>
+</head>
+<body>
+
+<img src='images/cat.jpg' id='x' 
+	 style='position:absolute; left:14px'>
+</body>
+</html>

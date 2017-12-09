@@ -1,0 +1,58 @@
+<html>
+<head>
+<script>
+
+function copyText(){
+	var p = document.getElementById('p')
+	var t = document.getElementById('t')
+	
+	if(p.childNodes.length > 0){
+		//alert('paragraph has children')
+		for(let i = 0; i < p.childNodes.length; i++){
+			if(p.childNodes[i].nodeType == 3){
+				p.childNodes[i].nodeValue = t.value
+				return
+			}
+		}
+		var text = document.createTextNode(t.value)
+		p.appendChild(text)
+	}else{
+		//alert('paragraph has NO children')
+		var text = document.createTextNode(t.value)
+		p.appendChild(text)
+	}
+}
+
+onload=function(){
+	var myh1 = document.createElement('h1')
+	var mytext = document.createTextNode('welcome')
+	
+	myh1.appendChild(mytext)
+	document.body.appendChild(myh1)
+	
+	var myimg = document.createElement('img')
+	myimg.src = 'dog.jpg'
+	myimg.width=400
+	myimg.style.border='red solid 2px'
+	
+	document.body.appendChild(myimg)
+	
+	var mytextbox = document.createElement('input')
+	mytextbox.type = 'text'
+	mytextbox.id = 't'
+	document.body.appendChild(document.createElement('br'))
+	document.body.appendChild(mytextbox)
+	mytextbox.focus()
+	
+	var myparagraph= document.createElement('p')
+	myparagraph.id = 'p'
+	document.body.appendChild(myparagraph)
+	
+	mytextbox.onkeyup = copyText
+}
+</script>
+</head>
+<body>
+
+</body>
+</html>

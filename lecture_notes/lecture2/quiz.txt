@@ -1,0 +1,41 @@
+isNaN("66")
+
+x = 11	// 11
+x++	// 12
+x *= 2	// 24
+
+y = 30 % 7	// 2
+
+// hours until jan 1 2019
+today = new Date()
+then  = new Date(2019, 0, 1)
+
+ms = then - today
+sec = ms / 1000
+min = sec / 60
+hours = min / 60
+
+if(gradePercent >= 50){
+	console.log('pass')
+}else{
+	console.log('fail')
+}
+
+days = ['sun', 'mon', 'tue', 'wed']
+
+for(i = 0; i < days.length; i++){
+	console.log(days[i])
+}
+
+onload=function(){		// DOM 1
+	for(i = 0; i < document.getElementsByTagName('div').length; i++)
+	{
+		document.getElementsByTagName('div')[i].style.color='red'
+	}
+}
+
+parseInt("3.5 4.5")	// 3
+parseFloat("3.5 4.5")	// 3.5
+
+s = "this is the best"
+s.indexOf("he") // 9
