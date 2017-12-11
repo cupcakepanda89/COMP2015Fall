@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Quiz04</title>
+	<script>
+		str = 'bcit';
+		links = document.getElementsByTagName('a');
+		for (let i = 0; i < links.length; i++) {
+			if ((links[i].href.includes(str))) {
+				links[i].onclick = function (e) {
+					e.preventDefault();
+				}
+
+			}
+		}
+		document.forms.onsubmit= function (e) {
+			e.preventDefault();
+			return false;
+		}
+	</script>
+</head>
+<body>
+<a href="http://www.nhlshop.ca">nhlshop</a>
+<a href="https://www.google.ca">google</a>
+<a href="https://www.bcit.ca">bcit</a>
+<a href="https://www.google.ca">google again</a>
+</body>
+</html>
