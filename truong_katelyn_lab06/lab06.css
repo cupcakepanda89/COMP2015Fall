@@ -1,0 +1,50 @@
+html, body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: Arial;
+    font-size: 130%;
+}
+h1 {
+    font-size: 60px;
+    font-family: "Freestyle Script", "American Typewriter", "Arial Black", sans-serif;
+}
+#sidebar {
+    width: 20%;
+    height: 100%;
+    float: left;
+    background: #0e5a4b;
+    color: white;
+    padding: 15px;
+}
+main {
+    width: 64%;
+    height: 100%;
+    float: left;
+    padding: 15px;
+}
+#message-entry {
+    width: 70%;
+    height: 40px;
+    border: 2px solid black;
+    font-size: 1em;
+    padding-left: 0.8em;
+}
+.message {
+    width: 100%;
+    clear: both;
+}
+.message p.user {
+    font-size: 0.5em;
+    display: block;
+    margin-bottom: 2px;
+}
+.message p.content {
+    padding: 20px;
+    margin-bottom: 20px;
+    margin-top: 0;
+    border-radius: 6px;
+    display: inline-block;
+    background: #ddd;
+    border-radius: 5px;
+}

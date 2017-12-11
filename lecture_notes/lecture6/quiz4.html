@@ -1,29 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Quiz04</title>
-	<script>
-		str = 'bcit';
-		links = document.getElementsByTagName('a');
-		for (let i = 0; i < links.length; i++) {
-			if ((links[i].href.includes(str))) {
-				links[i].onclick = function (e) {
-					e.preventDefault();
-				}
+Your Name: Katelyn Truong
+Student Number: A00952509
 
-			}
-		}
-		document.forms.onsubmit= function (e) {
-			e.preventDefault();
-			return false;
-		}
-	</script>
-</head>
-<body>
-<a href="http://www.nhlshop.ca">nhlshop</a>
-<a href="https://www.google.ca">google</a>
-<a href="https://www.bcit.ca">bcit</a>
-<a href="https://www.google.ca">google again</a>
-</body>
-</html>
+1.	Write the code that loops through all of pages’ hyperlinks and disables any link that has the word ‘bcit’ in its href attribute. Do not use Jquery (3 marks)
+str = 'bcit';
+links = document.getElementsByTagName('a');
+for (let i = 0; i < links.length; i++) {
+if ((links[i].href.includes(str))) {
+links[i].onclick = function (e) {
+e.preventDefault();
+}
+
+}
+}
+
+2.	What do we use instead of “windoe.onload=function(){}” when we use Jquery? (2 marks)
+$(document).ready();
+$(function () {
+
+})
+
+3.	Write Jquery Code that changes all images src attributes to “fish.jpg”
+$('img').attr('src', 'fish.jpg');
+
+4.	Write the Jquery code that changes an image’s css border-style attributes to “solid” when it is clicked (4 marks)
+$('img').click(function () {
+$('img').css('border','solid');
+})
+
+5.	Write code that prevents the following forms from being submitted it its textbox is empty. Do not use Jquery (3 marks)
+document.forms.onsubmit = function () {
+if(document.getElementById('t').value == ' '){
+alert('need to fill text field!');
+return false;
+}
+}
+
+
+6.	Show code that validates all forms using Jquery and the Jquery validation plugin that we used last lesson (2 marks)
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
+<script>
+	$(function(){
+		$('form').validate()
+	});
+</script>
+
+
+7.	Show the code that alerts “hi” after waiting 1 second (2 marks)
+setTimeout('alert("hi")', 1000);
+8.	Show the code that alerts “bye” every two seconds (1 marks)
+setInterval('alert("bye")', 2000);
+
+9.	Show the code that moves an image to the right by 5px every time it is clicked (3 marks)
+img = document.getElementsByTagName('img');
+img.onclick = function () {
+img.style.left = parseInt(img.style.left) + 5 + 'px';
+}
+

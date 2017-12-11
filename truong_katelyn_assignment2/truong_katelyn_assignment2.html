@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>assignment2</title>
+	<style>
+		img{height:75px}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+		function move(){
+			if(this.previousSibling != null){
+				this.parentNode.insertBefore(this, this.previousSibling)
+			}
+		}
+		function moveAgain() {
+			if(this.nextSibling != null){
+				this.parentNode.previousSibling.insertBefore(
+					this, this.parentNode.previousSibling.childNodes[1])
+			}
+		}
+		function init() {
+
+			var div = document.createElement('div');
+			for(let i = 'a'.charCodeAt(0); i <= 'e'.charCodeAt(0); i++){
+				var letter = String.fromCharCode(i)
+				//alert(letter)
+
+				var img = document.createElement('img')
+				img.src = 'images/' + letter + '.png'
+				img.id  = letter
+
+				img.onclick=move
+
+				div.appendChild(img)
+			}
+
+			document.body.appendChild(div);
+			var button = document.createElement('button');
+			var f = document.createElement('img')
+			f.src = 'images/f.png';
+			button.appendChild(f);
+			button.type = 'button';
+			document.body.appendChild(button);
+
+			for(let i = 'g'.charCodeAt(0); i <= 'h'.charCodeAt(0); i++){
+				var letter = String.fromCharCode(i)
+				//alert(letter)
+
+				var img = document.createElement('img')
+				img.src = 'images/' + letter + '.png'
+				img.id  = letter;
+
+				img.dblclick=moveAgain;
+
+				document.body.appendChild(img)
+			}
+			$('button').click(function () {
+				$('img').css('border', 'red solid 1px');
+			})
+		}
+		onload=init;
+	</script>
+</head>
+<body>
+
+</body>
+</html>

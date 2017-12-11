@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!--
+Name: Katelyn Truong
+ID: A00952909
+Homework: Lab06
+-->
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Lab06</title>
+	<script src="User.js"></script>
+	<script src="MessageBoard.js"></script>
+	<script src="Message.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="lab06.css">
+</head>
+<body>
+<div id="sidebar">
+	<button onclick="createUser()">Click to join the message board</button>
+	<h1>Current Users</h1>
+	<ul id="userlist">
+
+	</ul>
+</div>
+<main>
+	<div id="entry">
+		<input type="text" id="message-entry">
+		<select name="chooseUser" id="user-chooser"></select>
+		<button onclick="createMessage()">Submit</button>
+	</div>
+	<div id="messages">
+
+	</div>
+</main>
+<script>
+	var messageBoard = new MessageBoard();
+
+	function createUser() {
+		var name = prompt('Please choose a username');
+
+		var user = new User(name);
+		updateUserList(user);
+
+		alert(user.username + ' has been created');
+	}
+
+	// Clear out the unordered list and the dropdown
+	// and then repopulate them with the latest list of users
+	function updateUserList(user) {
+		messageBoard.addUser(user);
+
+		$('#userlist').text("");     // empty out the <ul>
+		$('#user-chooser').text(""); // empty out the dropdown
+
+		var userList = messageBoard.listUsers(); // return the array of users
+
+		// repopulate the <ul> and dropdown
+		for (let i = 0; i < userList.length; i++) {
+			$('#userlist').append('<li>' + userList[i].username + '</li>');
+			$('#user-chooser').append('<option value="' + userList[i].username + '">' + userList[i].username + '</option>');
+		}
+	}
+
+	function createMessage() {
+		// Grab the selected value from the dropdown
+		var name = $('#user-chooser').find(":selected").text();
+
+		// Make sure it's not empty
+		if (name == "") {
+			event.preventDefault();
+			alert('Please choose a user before posting');
+			return;
+		}
+
+		// Find the user object associated with the name
+		var user = messageBoard.findUser(name);
+
+		if (user != null) {
+			// Grab the text from the text input box and create a message object
+			var message = new Message(user, $('#message-entry').val());
+
+			// Add the new message to the board and update the screen
+			messageBoard.addMessage(message);
+			updateMessageList();
+		}
+	}
+
+	function updateMessageList() {
+		// Empty out the messages container div
+		$('#messages').text("");
+
+		// Grab all the messages
+		var messageList = messageBoard.listMessages();
+
+		// Repopulate the div with the current list of messages
+		for (let i = 0; i < messageList.length; i++) {
+			$('#messages').append('<div class="message"><p class="user">' + messageList[i].user.username + ' says:</p>' + '<p class="content">' + messageList[i].content + '</p></div>');
+		}
+	}
+</script>
+</body>
+</html>
